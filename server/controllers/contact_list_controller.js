@@ -1,4 +1,6 @@
 const sg = require('sendgrid').SendGrid(process.env.SG_API_KEY);
+const path = require('path');
+const Settings = require('../../settings')
 const optIn = 'opt-in';
 
 // Send confirmation email to contact with link to confirm email
@@ -7,22 +9,29 @@ exports.sendConfirmation = function(req, res, next) {
 
 	var helper = require('sendgrid').mail;
 	mail = new helper.Mail()
-	fromEmail = new helper.Email("sender@example.com", "Example Sender")
+	fromEmail = new helper.Email(Settings.senderEmail, Settings.senderName);
 	mail.setFrom(fromEmail)
 	mail.setSubject("Please Confirm Your Email Address");
-	content = new helper.Content("text/html", "Welcome! Click <a href='http://www.sendgrid.com'>this link</a> \
-		to sign up!  This link will be active for 24 hours.");
-	mail.addContent(content);
 
+	// Add mail content with success URL
+	url = 'http://' + Settings.url + '/success';
+	mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> \
+		to sign up!  This link will be active for 24 hours."
+	content = new helper.Content("text/html", mailText);
+	mail.addContent(content);
+	
 	// Add personalizations
 	personalization = new helper.Personalization();	
+	
 	// Add email to personalizations
 	to_email = new helper.Email(email);
 	personalization.addTo(to_email)
+	
 	// Add optIn type custom arg personalization
 	custom_arg = new helper.CustomArgs("type", optIn);
 	personalization.addCustomArg(custom_arg);
 	mail.addPersonalization(personalization);
+	
 	// Add time sent custom arg personalization
 	timeSent = String(Date.now());
 	custom_arg = new helper.CustomArgs("time_sent", timeSent);
@@ -39,7 +48,7 @@ exports.sendConfirmation = function(req, res, next) {
 		console.log(response.body);
 		console.log(response.headers);
 
-		res.sendStatus(200);
+		res.sendFile(path.join(__dirname, '../static/check-inbox.html'))	;
 	});
 }
 
