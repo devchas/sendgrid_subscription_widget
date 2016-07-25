@@ -14,7 +14,7 @@ exports.sendConfirmation = function(req, res, next) {
 	mail.setSubject("Please Confirm Your Email Address");
 
 	// Add mail content with success URL
-	url = 'http://' + Settings.url + '/success';
+	url = Settings.url + '/success';
 	mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> \
 		to sign up!  This link will be active for 24 hours."
 	content = new helper.Content("text/html", mailText);

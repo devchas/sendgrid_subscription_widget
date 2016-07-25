@@ -15,5 +15,8 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2",
     "sendgrid": "^3.0.8"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
