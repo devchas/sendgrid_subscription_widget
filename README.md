@@ -20,7 +20,7 @@ If you are unfamiliar with Github, simply click the button that reads *Fork* in 
 
 ### Deploy to Heroku
 
-**Make sure you Fork this repository before deploying clicking the button below**
+**Make sure you Fork this repository before clicking the Deploy to Heroku button below**
 
 Click the button below to deploy this app to the Heroku account you created earlier.  Once complete, locate the URL of your app.  You will need this for the following step.
 
@@ -28,7 +28,7 @@ Click the button below to deploy this app to the Heroku account you created earl
 
 Once the app is deployed, you may want to connect your forked Github repository to your Heroku app for easy deployment. You can do this by navigating to the *Deploy* tab within your app on Heroku and following the instructions.
 
-### Update Your App Settings on Github
+### Update Your App Settings in Your Forked Repository on Github
 Navigate to settings.js in your forked copy of the repository and change each of the four variables to the appropriate values.  See the example below.
 
 ```javascript
@@ -58,7 +58,7 @@ In order to easily test that your subscription widget is working properly, you m
 
 ### Usage
 
-In order to use this widget, drop the HTML in the form you altered in the index.html file into any website.
+In order to use this widget, drop the HTML from the form you altered in the index.html file earlier into any website.
 
 ### Customization
 
@@ -66,7 +66,7 @@ You may change the look and feel of the form or create a new one.  The form will
 
 You may also change the look of the check-inbox.html and success.html files, both of which are located in the static folder with index.html.  These are the pages that users will be directed to upon entering their email and cliking the confirmation link, respectively.
 
-Finally, you may change the content of the confirmation email by changing the *mailText* variable in the contact_list_controller.js file, which is located in the controllers folder.  
+Finally, you may change the content of the confirmation email by changing the *mailText* variable in the contact_list_controller.js file, which is located in the controllers folder. However, be sure to keep the link (*<a href='" + url + "'>this link</a>*) intact.
 
 ```javascript
 mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> \
