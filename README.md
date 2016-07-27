@@ -52,5 +52,24 @@ Navigate to the index.html file (server -> static -> index.html) and change the 
 The final step is to configure your API key as an environmental variable, which can be done either through Heroku's user interface or the Heroku CLI as shown in [these directions](https://devcenter.heroku.com/articles/config-vars). You must name your variable holding your API key *SG_API_KEY*.
 
 ### Test Your Widget
-In order to easily test that your subscription widget is working properly, you may navigate to the root URL of your Heroku app and enter an email that you have access to. If everything is working, you should receive an email with a link to confirm your subscription. Upon clicking this link, the email should be added to the SendGrid contact list you created earlier. 
+In order to easily test that your subscription widget is working properly, you may navigate to the root URL of your Heroku app and enter an email that you have access to. If everything is working, you should receive an email with a link to confirm your subscription. Upon clicking this link, the email should be added to the SendGrid contact list you created earlier.
+
+## Usage and Customization
+
+### Usage
+
+In order to use this widget, drop the HTML in the form you altered in the index.html file into any website.
+
+### Customization
+
+You may change the look and feel of the form or create a new one.  The form will continue to work so long as the action is what you specified earlier, the method is post, and there is an input element with name *email*. This widget currently only supports a single field for email.
+
+You may also change the look of the check-inbox.html and success.html files, both of which are located in the static folder with index.html.  These are the pages that users will be directed to upon entering their email and cliking the confirmation link, respectively.
+
+Finally, you may change the content of the confirmation email by changing the *mailText* variable in the contact_list_controller.js file, which is located in the controllers folder.  
+
+```javascript
+mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> \
+	to sign up!  This link will be active for 24 hours."
+```
  
