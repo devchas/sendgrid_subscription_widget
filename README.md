@@ -29,7 +29,7 @@ Click the button below to deploy this app to the Heroku account you created earl
 Once the app is deployed, you may want to connect your forked Github repository to your Heroku app for easy deployment. You can do this by navigating to the *Deploy* tab within your app on Heroku and following the instructions.
 
 ### Update Your App Settings in Your Forked Repository on Github
-Navigate to settings.js in your forked copy of the repository and change each of the four variables to the appropriate values.  See the example below.
+Navigate to settings.js in your forked copy of the repository and change each of the four variables to the appropriate values. You can find your app's URL by opening your app or navigating to the *Activity* tab in Heroku and scrolling to the middle of the page to the domains section. See the example below.
 
 ```javascript
 exports.url = 'https://dc-opt-in.herokuapp.com/';
@@ -48,8 +48,13 @@ Navigate to the index.html file (server -> static -> index.html) and change the 
 </form>
 ```
 
+*Remember to always re-deploy your app after making any changes.*
+
 ### Add API Key as Environmental Variable on Heroku
-The final step is to configure your API key as an environmental variable, which can be done either through Heroku's user interface or the Heroku CLI as shown in [these directions](https://devcenter.heroku.com/articles/config-vars). You must name your variable holding your API key *SG_API_KEY*.
+Next, configure your API key as an environmental variable, which can be done either through Heroku's user interface or the Heroku CLI as shown in [these directions](https://devcenter.heroku.com/articles/config-vars). You must name your variable holding your API key *SG_API_KEY*.
+
+### Create an Event Webhook
+The final step is to create an event webhook on SendGrid's website. This will trigger the user being added to your email contact list. In order to set up an event webhook, navigation to Settings -> Mail Settings, and then click on *Event Notification*.  Make sure the toggle in the top left of that section is set to *ON*. Click edit. Enter the root URL of your Heroku app + '/signup'. The following is an example URL: https://dc-opt-in.herokuapp.com/signup. Select *Clicked* below the enter URL area. Then, click the blue check box in the top right corner of the section to save changes.
 
 ### Test Your Widget
 In order to easily test that your subscription widget is working properly, you may navigate to the root URL of your Heroku app and enter an email that you have access to. If everything is working, you should receive an email with a link to confirm your subscription. Upon clicking this link, the email should be added to the SendGrid contact list you created earlier.
