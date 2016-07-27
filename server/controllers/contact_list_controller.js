@@ -57,7 +57,7 @@ exports.addUser = function(req, res, next) {
 	const email = req.body[0].email;
 	const emailType = req.body[0].type;
 	const timestamp = parseInt(req.body[0].time_sent);
-	const listID = 348282;
+	const listID = Settings.listID;
 	const secondsInDay = 86400;
 	const timeElapsed = (Date.now() - timestamp) / 1000;
 
