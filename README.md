@@ -66,7 +66,7 @@ You may change the look and feel of the form or create a new one.  The form will
 
 You may also change the look of the check-inbox.html and success.html files, both of which are located in the static folder with index.html.  These are the pages that users will be directed to upon entering their email and cliking the confirmation link, respectively.
 
-Finally, you may change the content of the confirmation email by changing the *mailText* variable in the contact_list_controller.js file, which is located in the controllers folder. However, be sure to keep the link (*<a href='" + url + "'>this link</a>*) intact.
+Finally, you may change the content of the confirmation email by changing the *mailText* variable in the contact_list_controller.js file, which is located in the controllers folder. However, be sure to keep the link intact.
 
 ```javascript
 mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> \
