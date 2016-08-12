@@ -32,7 +32,7 @@ Once the app is deployed, you may want to connect your forked Github repository 
 Navigate to settings.js in your forked copy of the repository and change each of the four variables to the appropriate values. You can find your app's URL by opening your app or navigating to the *Activity* tab in Heroku and scrolling to the middle of the page to the domains section. See the example below.
 
 ```javascript
-exports.url = 'https://dc-opt-in.herokuapp.com/';
+exports.url = 'https://dc-opt-in.herokuapp.com';
 exports.senderEmail = "devin.chasanoff@sendgrid.com";
 exports.senderName = "Devin Chasanoff";
 exports.listID = 348282;
