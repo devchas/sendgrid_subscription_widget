@@ -33,8 +33,8 @@ Navigate to settings.js in your forked copy of the repository and change each of
 
 ```javascript
 exports.url = 'https://your_heroku_app_name.herokuapp.com';
-exports.senderEmail = "devin.chasanoff@sendgrid.com";
-exports.senderName = "Devin Chasanoff";
+exports.senderEmail = "sender@example.com";
+exports.senderName = "Sender Name";
 exports.listID = 348282;
 ```
 
