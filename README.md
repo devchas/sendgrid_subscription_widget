@@ -32,7 +32,7 @@ Once the app is deployed, you may want to connect your forked Github repository 
 Navigate to settings.js in your forked copy of the repository and change each of the four variables to the appropriate values. You can find your app's URL by opening your app or navigating to the *Activity* tab in Heroku and scrolling to the middle of the page to the domains section. See the example below.
 
 ```javascript
-exports.url = 'https://dc-opt-in.herokuapp.com';
+exports.url = 'https://your_heroku_app_name.herokuapp.com';
 exports.senderEmail = "devin.chasanoff@sendgrid.com";
 exports.senderName = "Devin Chasanoff";
 exports.listID = 348282;
@@ -41,7 +41,7 @@ exports.listID = 348282;
 Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. This is the code snippet that you will be embedding in your website. See below for an example.
 
 ```html
-<form action="https://dc-opt-in.herokuapp.com/confirmEmail" method="post">
+<form action="https://your_heroku_app_name.herokuapp.com/confirmEmail" method="post">
 	<span>Email: </span>
 	<input type="text" name="email" placeholder="hello@example.com" />
 	<input type="submit" value="submit" />
