@@ -1,6 +1,6 @@
 const sg = require('sendgrid').SendGrid(process.env.SG_API_KEY);
 const path = require('path');
-const Settings = require('../../settings')
+const Settings = require('../../settings');
 const optIn = 'opt-in';
 
 // Send confirmation email to contact with link to confirm email
@@ -55,12 +55,16 @@ exports.sendConfirmation = function(req, res, next) {
 	request.method = 'POST';
 	request.path = '/v3/mail/send';
 	request.body = requestBody;
-	sg.API(request, function (response) {
+	sg.API(request, function(response) {
 		console.log(response.statusCode);
 		console.log(response.body);
 		console.log(response.headers);
 
-		res.sendFile(path.join(__dirname, '../static/check-inbox.html'))	;
+		if(response.statusCode == 202 || response.statusCode == 200) {
+			res.sendFile(path.join(__dirname, '../static/check-inbox.html'));
+		} else {
+			res.sendFile(path.join(__dirname, '../static/error.html'));
+		}
 	});
 }
 
