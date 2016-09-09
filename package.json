@@ -14,7 +14,8 @@
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2",
-    "sendgrid": "^3.0.8"
+    "sendgrid": "^4.0.2",
+    "sendgrid-rest": "^2.2.1"
   },
   "engines": {
     "node": "4.1.1"
