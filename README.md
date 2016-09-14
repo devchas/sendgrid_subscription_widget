@@ -13,7 +13,7 @@ Before following these instructions, you must:
 ### Initial SendGrid Set-up - Create API Key & Contact List
 To begin, you will first need to create an API key on SendGrid's website. Once logged in, go to Settings -> API Keys, and click the blue button in the top right corner of the website.  You will be creating a General API key, which must have *Full Access* to *Mail Send* and *Marketing Campaigns*.  Keep this API key in a *safe* and *private* location.  You will need it later.
 
-Next, create a new contact list segment by navigating to Marketing Campaigns -> Contacts, and then clicking the blue button in the top right corner of the page. Once the list is created, you will require the list ID.  You can find this number by navigating to the list and looking at the URL.  The list ID will be the numbers following the last forward slash.  For example, the list ID of a list with URL of https://sendgrid.com/marketing_campaigns/lists/348282 would be 348282.
+Next, create a new contact list by navigating to Marketing Campaigns -> Contacts, and then clicking the blue button in the top right corner of the page. Once the list is created, you will require the list ID.  You can find this number by navigating to the list and looking at the URL.  The list ID will be the numbers following the last forward slash.  For example, the list ID of a list with URL of https://sendgrid.com/marketing_campaigns/lists/348282 would be 348282.
 
 ### Fork this Repository to Create Your Own Copy
 If you are unfamiliar with Github, simply click the button that reads *Fork* in the top right of this page. Doing this will provide you with your own copy.  You'll need to change a few basic settings in your copy.
@@ -51,10 +51,10 @@ Navigate to the index.html file (server -> static -> index.html) and change the 
 *Remember to always re-deploy your app after making any changes.*
 
 ### Add API Key as Environmental Variable on Heroku
-Next, configure your API key as an environmental variable, which can be done either through Heroku's user interface or the Heroku CLI as shown in [these directions](https://devcenter.heroku.com/articles/config-vars). You must name your variable holding your API key *SG_API_KEY*.
+Next, configure your API key as an environmental variable, which can be done either through Heroku's user interface or the Heroku CLI as shown in [these directions](https://devcenter.heroku.com/articles/config-vars). Updating the environment variable in your Heroku account can be done by logging into your heroku account, navigating to your newly deployed app, and clicking settings. Inside the settings page you will see an option to "Reveal Config Vars".  You must name your variable holding your API key *SG_API_KEY*.
 
-### Create an Event Webhook
-The final step is to create an event webhook on SendGrid's website. This will trigger the user being added to your email contact list. In order to set up an event webhook, navigation to Settings -> Mail Settings, and then click on *Event Notification*.  Make sure the toggle in the top left of that section is set to *ON*. Click edit. Enter the root URL of your Heroku app + '/signup'. The following is an example URL: https://your_heroku_app_name.herokuapp.com/signup. Select *Clicked* below the enter URL area. Then, click the blue check box in the top right corner of the section to save changes.
+### Enable Event Webhook
+The final step is to enable the event webhook on your SendGrid account. This will allow the opt-in component of the signup to function properly. In order to set up an event webhook, navigate to Settings -> Mail Settings, and then click on *Event Notification*.  Make sure the toggle in the top left of that section is set to *ON*. Click edit. Enter the root URL of your Heroku app + '/signup'. The following is an example URL: https://your_heroku_app_name.herokuapp.com/signup. Select *Clicked* below the enter URL area. Then, click the blue check box in the top right corner of the section to save changes.
 
 ### Test Your Widget
 In order to easily test that your subscription widget is working properly, you may navigate to the root URL of your Heroku app and enter an email that you have access to. If everything is working, you should receive an email with a link to confirm your subscription. Upon clicking this link, the email should be added to the SendGrid contact list you created earlier.
@@ -63,7 +63,7 @@ In order to easily test that your subscription widget is working properly, you m
 
 ### Usage
 
-In order to use this widget, drop the HTML from the form you altered in the index.html file earlier into any website.
+In order to use this widget, once you've followed the setup steps above, drop the HTML from the form you altered in the index.html file earlier into any website.
 
 ### Customization
 
