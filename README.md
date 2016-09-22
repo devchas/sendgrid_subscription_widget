@@ -2,6 +2,65 @@
 
 This is an open source repository to add a flexible email subscription widget, like the one shown below, to any website using [SendGrid](https://sendgrid.com/). After following these directions, you'll be able to add a snippet of HTML to any website that will collect email addresses for your app or business. This widget utilizes [double opt-in](https://sendgrid.com/docs/Glossary/opt_in_email.html) functionality, which means users must confirm their email addresses by clicking an email that is automatically sent to their provided email address.
 
+<style>
+html {
+	font-family: arial;
+	font-size: 16;
+}
+form {
+	display: inline-block;
+}
+legend {
+	font-size: 14;
+}
+label {
+	width: 100px;
+	display: inline-block;
+	margin-left: 8;
+	margin-top: 15;
+	font-weight: bold;
+}
+input, button {
+	font-size: 12px;
+	padding: 5px;
+	margin-right: 8;
+}
+input {
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	height: 25;
+	width: 200px;
+}
+button {
+	border-radius: 3px;
+	border: 0px solid #ccc;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	background-color: #1A82E2;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	width: 308px;
+	height: 32px;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	float: right;
+}
+</style>
+
+<form action="https://dc-opt-in.herokuapp.com/confirmEmail" method="post">
+	<fieldset>
+		<legend>Enter Your Information</legend>
+		<label for="email">Email:</label>
+		<input type="text" name="email" placeholder="hello@example.com" /><br>
+		<label for="firstName">First Name:</label>		
+		<input type="text" name="firstName" placeholder="John" /><br>
+		<label for="lastName">Last Name:</label>
+		<input type="text" name="lastName" placeholder="Doe" /><br>
+		<button type="submit" value="Submit" />SIGN UP</button>
+	</fieldset>
+</form>
+
 ![alt text](https://github.com/devchas/sendgrid_subscription_widget/blob/master/server/static/sample-form.png "Sample Form")
 
 ## Requirements
