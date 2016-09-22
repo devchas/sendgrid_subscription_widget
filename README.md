@@ -2,7 +2,7 @@
 
 This is an open source repository to add a flexible email subscription widget to any website using [SendGrid](https://sendgrid.com/). After following these directions, you'll be able to add a snippet of HTML to any website that will collect email addresses for your app or business. This widget utilizes [double opt-in](https://sendgrid.com/docs/Glossary/opt_in_email.html) functionality, which means users must confirm their email addresses by clicking an email that is automatically sent to their provided email address.
 
-![alt text](./server/static/sample-form.png "Sample Form" =100x)
+![alt text](./server/static/sample-form.png "Sample Form")
 
 ## Requirements
 
