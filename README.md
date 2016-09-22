@@ -40,7 +40,7 @@ exports.senderName = "Sender Name";
 exports.listID = 348282;
 ```
 
-Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. This is the code snippet that you will be embedding in your website. See below for an example.
+Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. The text in this file is what you will be embedding in your website. See below for an example.
 
 ```html
 <form action="https://your_heroku_app_name.herokuapp.com/confirmEmail" method="post">
@@ -72,11 +72,14 @@ In order to easily test that your subscription widget is working properly, you m
 
 ### Usage
 
-In order to use this widget, drop the HTML from the form you altered in the index.html file earlier into any website.
+In order to use this widget, all of text from the index.html file you altered earlier into any website.
 
 ### Customization
 
-You may change the look and feel of the form or create a new one.  The form will continue to work so long as the action is what you specified earlier, the method is post, and there is an input element with name *email*. This widget currently only supports a single field for email.
+You may change the look and feel of the form or create a new one.  The form will continue to work so long as the action is what you specified earlier, the method is post, and there is an input element with name *email*.  The default widget comes with three fields: 1) email, 2) first name, 3) last name.  You may remove first and/or last name if you so choose.  In addition, you may change the form's styling by adjusting the CSS contained in index.html.
+
+#### Adding New Fields
+// TO DO
 
 You may also change the look of the check-inbox.html and success.html files, both of which are located in the static folder with index.html.  These are the pages that users will be directed to upon entering their email and cliking the confirmation link, respectively.
 
