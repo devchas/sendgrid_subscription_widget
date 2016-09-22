@@ -1,6 +1,8 @@
 # Email Subscription Widget with Double Opt-In
 
-This is an open source repository to add a flexible email subscription widget to any website using [SendGrid](https://sendgrid.com/). After following these directions, you'll be able to add a snippet of HTML to any website that will collect email addresses for your app or business. This widget utilizes [double opt-in](https://sendgrid.com/docs/Glossary/opt_in_email.html) functionality, which means users must confirm their email addresses by clicking an email that is automatically sent to their provided email address.
+This is an open source repository to add a flexible email subscription widget, like the one shown below, to any website using [SendGrid](https://sendgrid.com/). After following these directions, you'll be able to add a snippet of HTML to any website that will collect email addresses for your app or business. This widget utilizes [double opt-in](https://sendgrid.com/docs/Glossary/opt_in_email.html) functionality, which means users must confirm their email addresses by clicking an email that is automatically sent to their provided email address. You can find a working version of the widget [here](https://dc-opt-in.herokuapp.com/). 
+
+![alt text](https://github.com/devchas/sendgrid_subscription_widget/blob/master/server/static/sample-form.png "Sample Form")
 
 ## Requirements
 
@@ -38,13 +40,20 @@ exports.senderName = "Sender Name";
 exports.listID = 348282;
 ```
 
-Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. This is the code snippet that you will be embedding in your website. See below for an example.
+Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. The text in this file is what you will be embedding in your website. See below for an example.
 
 ```html
 <form action="https://your_heroku_app_name.herokuapp.com/confirmEmail" method="post">
-	<span>Email: </span>
-	<input type="text" name="email" placeholder="hello@example.com" />
-	<input type="submit" value="submit" />
+	<fieldset>
+		<legend>Enter Your Information</legend>
+		<label for="email">Email:</label>
+		<input type="text" name="email" placeholder="hello@example.com" /><br>
+		<label for="firstName">First Name:</label>		
+		<input type="text" name="firstName" placeholder="John" /><br>
+		<label for="lastName">Last Name:</label>
+		<input type="text" name="lastName" placeholder="Doe" /><br>
+		<button type="submit" value="Submit" />SIGN UP</button>
+	</fieldset>
 </form>
 ```
 
@@ -63,11 +72,14 @@ In order to easily test that your subscription widget is working properly, you m
 
 ### Usage
 
-In order to use this widget, once you've followed the setup steps above, drop the HTML from the form you altered in the index.html file earlier into any website.
+In order to use this widget, once you've followed the setup steps above, drop all of text from the index.html file you altered earlier into any website.
 
 ### Customization
 
-You may change the look and feel of the form or create a new one.  The form will continue to work so long as the action is what you specified earlier, the method is post, and there is an input element with name *email*. This widget currently only supports a single field for email.
+You may change the look and feel of the form or create a new one.  The form will continue to work so long as the action is what you specified earlier, the method is post, and there is an input element with name *email*.  The default widget comes with three fields: 1) email, 2) first name, 3) last name.  You may remove first and/or last name if you so choose.  In addition, you may change the form's styling by adjusting the CSS contained in index.html.
+
+#### Adding New Fields
+// TO DO
 
 You may also change the look of the check-inbox.html and success.html files, both of which are located in the static folder with index.html.  These are the pages that users will be directed to upon entering their email and cliking the confirmation link, respectively.
 
