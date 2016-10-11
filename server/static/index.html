@@ -1,3 +1,24 @@
+<form action="http://localhost:3090/confirmEmail" method="post">
+	<fieldset>
+		<legend>Enter Your Information</legend>
+		
+		<label for="email">Email:</label>
+		<input type="text" name="email" placeholder="hello@example.com" /><br>
+		
+		<label for="firstName">First Name:</label>		
+		<input type="text" name="firstName" placeholder="John" /><br>
+		
+		<label for="lastName">Last Name:</label>
+		<input type="text" name="lastName" placeholder="Doe" /><br>
+
+		<label for="favoriteColor">Fav Color:</label>
+		<input type="text" name="favoriteColor" placeholder="Blue" /><br>
+
+		<button type="submit" value="Submit" />SIGN UP</button>
+	</fieldset>
+</form>
+
+
 <style>
 html {
 	font-family: arial;
@@ -43,16 +64,3 @@ button {
 	float: right;
 }
 </style>
-
-<form action="http://localhost:3090/confirmEmail" method="post">
-	<fieldset>
-		<legend>Enter Your Information</legend>
-		<label for="email">Email:</label>
-		<input type="text" name="email" placeholder="hello@example.com" /><br>
-		<label for="firstName">First Name:</label>		
-		<input type="text" name="firstName" placeholder="John" /><br>
-		<label for="lastName">Last Name:</label>
-		<input type="text" name="lastName" placeholder="Doe" /><br>
-		<button type="submit" value="Submit" />SIGN UP</button>
-	</fieldset>
-</form>

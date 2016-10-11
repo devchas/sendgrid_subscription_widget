@@ -4,44 +4,57 @@ const Settings = require('../../settings');
 const optIn = 'opt-in';
 
 function prepareEmail(emailBody) {
+
+	console.log(emailBody);
+
 	const senderEmail = Settings.senderEmail;
 	const senderName = Settings.senderName;
 	const recipientEmail = emailBody.email;
 	const firstName = emailBody.firstName;
 	const lastName = emailBody.lastName;
+	const favoriteColor = emailBody.favoriteColor;
 	const subject = "Please Confirm Your Email Address";
 	const url = Settings.url + '/success';
-	const mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> to sign up!  This link will be active for 24 hours.";
+	const link = "<a href='" + url + "'>this link</a>"
+	const mailText = "Thanks for signing up! Click " + link + " to sign up!  This link will be active for 24 hours.";
 	const timeSent = String(Date.now());
+	const templateId = Settings.templateId;
 
-	return {
-	  "personalizations": [
+	var emailBody = {
+	  personalizations: [
 	    {
-	      "to": [
+	      to: [
 	        {
-	          "email": recipientEmail,
+	          email: recipientEmail,
 	        }
 	      ],
-	      "subject": subject,
-	      "custom_args": {
-	      	"firstName": firstName,
-	      	"lastName": lastName,
-	      	"type": optIn,
-	      	"time_sent": timeSent,
+	      subject: subject,
+	      custom_args: {
+	      	firstName: firstName,
+	      	lastName: lastName,
+	      	favoriteColor: favoriteColor,
+	      	type: optIn,
+	      	time_sent: timeSent,
 	      },
+	      substitutions: {
+	      	link_insert: link
+	      }
 	    },
 	  ],
-	  "from": {
-	    "email": senderEmail,
-	    "name": senderName,
+	  from: {
+	    email: senderEmail,
+	    name: senderName,
 	  },
-	  "content": [
+	  content: [
 	    {
-	      "type": "text/html",
-	      "value": mailText,
+	      type: "text/html",
+	      value: mailText,
 	    }
-	  ]
+	  ],
 	}
+
+	if (templateId) emailBody.template_id = templateId;
+	return emailBody;
 }
 
 function send(toSend) {
@@ -83,22 +96,19 @@ exports.sendConfirmation = (req, res, next) => {
 
 // Create new contact and add contact to given list
 exports.addUser = function(req, res, next) {
-	var isUserAdded = addUserToList(req.body[0]);
-
-	if (isUserAdded) {
+	addUserToList(req.body[0], function() {
 		res.sendStatus(200);
-	} else {
-		res.sendStatus(500);
-	}
+	});
 }
 
-function addUserToList(emailBody) {
+function addUserToList(emailBody, callback) {
 	const email = emailBody.email;
 	const firstName = emailBody.firstName;
 	const lastName = emailBody.lastName;
+	const favoriteColor = emailBody.favoriteColor;
 	const emailType = emailBody.type;
 	const timestamp = parseInt(emailBody.time_sent);
-	const listID = Settings.listID;
+	const listId = Settings.listId;
 	const secondsInDay = 86400;
 	const timeElapsed = (Date.now() - timestamp) / 1000;
 
@@ -106,9 +116,10 @@ function addUserToList(emailBody) {
 	if (emailType == optIn && timeElapsed < secondsInDay) {
 		// Create new contact
 		const requestBody = [{ 
-			"email": email,
-			"first_name": firstName,
-			"last_name": lastName, 
+			email: email,
+			first_name: firstName,
+			last_name: lastName,
+			favorite_color: favoriteColor
 		}];
 
 		var emptyRequest = require('sendgrid-rest').request
@@ -121,25 +132,26 @@ function addUserToList(emailBody) {
 	    	console.log(response.body)
 	    	console.log(response.headers)
 
-			// Add contact to list
-			var contactID = JSON.parse(response.body.toString()).persisted_recipients[0];			
-			var emptyRequest = require('sendgrid-rest').request
-			var requestPost = JSON.parse(JSON.stringify(emptyRequest))
-			requestPost.method = 'POST'
-			requestPost.path = '/v3/contactdb/lists/' + listID + '/recipients/' + contactID;
-			sg.API(requestPost, function (error, response) {
-		    	console.log(response.statusCode)
-		    	console.log(response.body)
-		    	console.log(response.headers)
-				
-				if (response.statusCode == 202 || response.statusCode == 200) {
-					return true;
-				} else {
-					return false;
-				}
-			});
+	    	if (listId) {
+				// Add contact to list
+				var contactID = JSON.parse(response.body.toString()).persisted_recipients[0];			
+				var emptyRequest = require('sendgrid-rest').request
+				var requestPost = JSON.parse(JSON.stringify(emptyRequest))
+				requestPost.method = 'POST'
+				requestPost.path = '/v3/contactdb/lists/' + listId + '/recipients/' + contactID;
+				sg.API(requestPost, function (error, response) {
+			    	console.log(response.statusCode)
+			    	console.log(response.body)
+			    	console.log(response.headers)
+					
+					callback();
+				});
+	    	} else {
+				callback();	    		
+	    	}
+
 		});
 	} else {
-		return false;
+		callback();
 	}
 }
