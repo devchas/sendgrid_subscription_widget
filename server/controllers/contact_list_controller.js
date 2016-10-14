@@ -94,10 +94,6 @@ function addUserToList(emailBody, callback) {
 		}
 	}
 	
-	const email = emailBody.email;
-	const firstName = emailBody.firstName;
-	const lastName = emailBody.lastName;
-	const favoriteColor = emailBody.favoriteColor;
 	const emailType = emailBody.type;
 	const timestamp = parseInt(emailBody.time_sent);
 	const listId = Settings.listId;
