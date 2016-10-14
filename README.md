@@ -37,7 +37,12 @@ Navigate to settings.js in your forked copy of the repository and change each of
 exports.url = 'https://your_heroku_app_name.herokuapp.com';
 exports.senderEmail = "sender@example.com";
 exports.senderName = "Sender Name";
-exports.listID = 348282;
+
+// set 'exports.listId = null' to add contact to all contacts, but no specific list
+exports.listID = 651138;
+
+// set 'exports.templateId = null' to opt out of using a template
+exports.templateId = "dbc810ec-b776-4345-b0c7-02e2bbcd2ab4"
 ```
 
 Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. The text in this file is what you will be embedding in your website. See below for an example.
@@ -48,10 +53,12 @@ Navigate to the index.html file (server -> static -> index.html) and change the 
 		<legend>Enter Your Information</legend>
 		<label for="email">Email:</label>
 		<input type="text" name="email" placeholder="hello@example.com" /><br>
-		<label for="firstName">First Name:</label>		
-		<input type="text" name="firstName" placeholder="John" /><br>
-		<label for="lastName">Last Name:</label>
-		<input type="text" name="lastName" placeholder="Doe" /><br>
+		<label for="first_name">First Name:</label>		
+		<input type="text" name="first_name" placeholder="John" /><br>
+		<label for="last_name">Last Name:</label>
+		<input type="text" name="last_name" placeholder="Doe" /><br>
+		<label for="favorite_color">Fav Color:</label>
+		<input type="text" name="favorite_color" placeholder="Blue" /><br>
 		<button type="submit" value="Submit" />SIGN UP</button>
 	</fieldset>
 </form>
