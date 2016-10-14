@@ -57,8 +57,6 @@ Navigate to the index.html file (server -> static -> index.html) and change the 
 		<input type="text" name="first_name" placeholder="John" /><br>
 		<label for="last_name">Last Name:</label>
 		<input type="text" name="last_name" placeholder="Doe" /><br>
-		<label for="favorite_color">Fav Color:</label>
-		<input type="text" name="favorite_color" placeholder="Blue" /><br>
 		<button type="submit" value="Submit" />SIGN UP</button>
 	</fieldset>
 </form>
@@ -86,7 +84,24 @@ In order to use this widget, once you've followed the setup steps above, drop al
 You may change the look and feel of the form or create a new one.  The form will continue to work so long as the action is what you specified earlier, the method is post, and there is an input element with name *email*.  The default widget comes with three fields: 1) email, 2) first name, 3) last name.  You may remove first and/or last name if you so choose.  In addition, you may change the form's styling by adjusting the CSS contained in index.html.
 
 #### Adding New Fields
-// TO DO
+You may also add custom fields to the form to save other information about your users during the sign up process. To do so, add a custom field by following this instructions provided in [this guide](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/custom_fields.html).  **It is important to create any custom fields in your SendGrid account prior to adding them to the form.**  Once you have created the custom field in your SendGrid account, simply add an additional input field with the name(s) of your custom field(s).  **The name of the input must match the name of the custom field exactly and is case sensitive.** The example below shows a form with the custom field "favorite_color".
+
+```html
+<form action="https://your_heroku_app_name.herokuapp.com/confirmEmail" method="post">
+	<fieldset>
+		<legend>Enter Your Information</legend>
+		<label for="email">Email:</label>
+		<input type="text" name="email" placeholder="hello@example.com" /><br>
+		<label for="first_name">First Name:</label>		
+		<input type="text" name="first_name" placeholder="John" /><br>
+		<label for="last_name">Last Name:</label>
+		<input type="text" name="last_name" placeholder="Doe" /><br>
+		<label for="favorite_color">Favorite Color:</label>
+		<input type="text" name="favorite_color" placeholder="Blue" /><br>
+		<button type="submit" value="Submit" />SIGN UP</button>
+	</fieldset>
+</form>
+```
 
 You may also change the look of the check-inbox.html and success.html files, both of which are located in the static folder with index.html.  These are the pages that users will be directed to upon entering their email and cliking the confirmation link, respectively.
 
