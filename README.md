@@ -49,7 +49,7 @@ By default, the widget is configured to save a new contact to your master list o
 #### Use a Transactional Template (Optional)
 You may also send your confirmation email using [transactional email templates](https://sendgrid.com/solutions/transactional-email-templates/) to give your email a more professional look and feel.  To do so, you must first create a template by following the steps provided in [this guide](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Once you have create a custom transacitonal email template, change the value of the exports.templateId to the ID of the template you created. If you choose to use templates, **you must include a substitution tag named "link_insert"**. This will be substituted with the link that signs up a user in the double opt-in process. (Example template below)
 
-![alt text](https://github.com/devchas/sendgrid_subscription_widget/blob/master/server/static/template.png "Template")
+![alt text](https://github.com/devchas/sendgrid_subscription_widget/blob/master/server/static/template.png "Transactional Email Template")
 
 #### Edit the Form with Your Custom URL
 Navigate to the index.html file (server -> static -> index.html) and change the action in the form to reflect your app's URL. Remember to leave "/confirmEmail" at the end. The text in this file is what you will be embedding in your website. See below for an example.
