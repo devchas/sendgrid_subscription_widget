@@ -5,7 +5,7 @@ const optIn = 'opt-in';
 
 function prepareEmail(reqBody) {
 	const subject = "Please Confirm Your Email Address";
-	const url = Settings.url + '/success';
+	const url = formatUrl(Settings.url) + '/success';
 	const link = "<a href='" + url + "'>this link</a>"
 	const mailText = "Thanks for signing up! Click " + link + " to sign up!  This link will be active for 24 hours.";
 
@@ -192,6 +192,13 @@ function checkAndAddCustomFields(submittedFields, callback) {
 		}
 
     });
+}
+
+function formatUrl(url) {
+	if (url.substr(-1) == '/') {
+		return url.substring(0, url.length - 1);
+	}
+	return url;
 }
 
 function stringInArray(string, array) {
