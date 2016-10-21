@@ -1,4 +1,6 @@
 const sg = require('sendgrid')(process.env.SG_API_KEY);
+sg.globalRequest.headers['User-Agent'] = 'subscription-widget/1.0.0';
+
 const path = require('path');
 const Settings = require('../../settings');
 const optIn = 'opt-in';
