@@ -75,7 +75,12 @@ Navigate to the index.html file (server -> static -> index.html) and change the 
 Next, configure your API key as an environmental variable, which can be done either through Heroku's user interface or the Heroku CLI as shown in [these directions](https://devcenter.heroku.com/articles/config-vars). Updating the environment variable in your Heroku account can be done by logging into your heroku account, navigating to your newly deployed app, and clicking settings. Inside the settings page you will see an option to "Reveal Config Vars".  You must name your variable holding your API key *SG_API_KEY*.
 
 ### Enable Event Webhook
-The final step is to enable the event webhook on your SendGrid account. This will allow the opt-in component of the signup to function properly. In order to set up an event webhook, navigate to Settings -> Mail Settings, and then click on *Event Notification*.  Make sure the toggle in the top left of that section is set to *ON*. Click edit. Enter the root URL of your Heroku app + '/signup'. The following is an example URL: https://your_heroku_app_name.herokuapp.com/signup. Select *Clicked* below the enter URL area. Then, click the blue check box in the top right corner of the section to save changes.
+The final step is to enable the event webhook on your SendGrid account. This will allow the opt-in component of the signup to function properly. In order to set up an event webhook, navigate to Settings -> Mail Settings, and then click on *Event Notification*.  
+
+Make sure the toggle in the top left of that section is set to *ON*. Click edit. Enter the root URL of your Heroku app + '/signup'. The following is an example URL: https://your_heroku_app_name.herokuapp.com/signup. 
+
+For the types of events to receive, make sure to select only *Clicked*. Then, click the blue check box in the top right corner of the section to save changes.
+
 
 ### Test Your Widget
 In order to easily test that your subscription widget is working properly, you may navigate to the root URL of your Heroku app and enter an email that you have access to. If everything is working, you should receive an email with a link to confirm your subscription. Upon clicking this link, the email should be added to the SendGrid contact list you created earlier.
