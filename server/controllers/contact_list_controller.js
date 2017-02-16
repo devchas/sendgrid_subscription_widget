@@ -5,10 +5,11 @@ const path = require('path');
 const Settings = require('../../settings');
 const optIn = 'opt-in';
 
-function prepareNotificationEmail(reqBody) {
-	const subject = "New signup "
+function prepareConfirmationEmail(reqBody) {
+	const subject = "Please Confirm Your Email Address";
 	const url = formatUrl(Settings.url) + '/success';
-	const mailText = "Thanks for signing up. <a href='" + url + "'>Please click here to confirm your email address.</a>  This link will be active for 24 hours.";
+	const link = "<a href='" + url + "'>this link</a>"
+	const mailText = "Thanks for signing up! Click " + link + " to sign up!  This link will be active for 24 hours.";
 
 	var emailBody = {
 	  personalizations: [
@@ -22,54 +23,15 @@ function prepareNotificationEmail(reqBody) {
 	      custom_args: {
 	      	type: optIn,
 	      	time_sent: String(Date.now()),
+	      },
+	      substitutions: {
+	      	link_insert: link
 	      }
 	    },
 	  ],
 	  from: {
 	    email: Settings.senderEmail,
-	    name: Settings.senderEmail,
-	  },
-	  content: [
-	    {
-	      type: "text/html",
-	      value: mailText,
-	    }
-	  ],
-	}
-
-	const templateId = Settings.templateId;
-	if (templateId) emailBody.template_id = templateId;
-
-	for (key in reqBody) {
-		emailBody.personalizations[0].custom_args[key] = reqBody[key];
-	}
-
-	return emailBody;
-}
-
-function prepareEmail(reqBody) {
-	const subject = reqBody.first_name;
-	const url = formatUrl(Settings.url) + '/success';
-	const mailText = "Thanks for signing up. <a href='" + url + "'>Please click here to confirm your email address.</a>  This link will be active for 24 hours.";
-
-	var emailBody = {
-	  personalizations: [
-	    {
-	      to: [
-	        {
-	          email: reqBody.email,
-	        }
-	      ],
-	      subject: subject,
-	      custom_args: {
-	      	type: optIn,
-	      	time_sent: String(Date.now()),
-	      }
-	    },
-	  ],
-	  from: {
-	    email: Settings.senderEmail,
-	    name: Settings.senderEmail,
+	    name: Settings.senderName,
 	  },
 	  content: [
 	    {
@@ -91,7 +53,7 @@ function prepareEmail(reqBody) {
 
 function prepareNotificationEmail(reqBody) {
 	const subject = "New email signup";
-	const mailText = "A new person just confirmed via your email subscription widget.<br/>" + reqBody.first_name + " " + reqBody.last_name + "<br/>" + reqBody.email;
+	const mailText = "A new person just confirmed they would look to receive your emails via your email subscription widget.<br/><b>Name: </b>" + reqBody.first_name + " " + reqBody.last_name + "<br/><b>Email: </b>" + reqBody.email;
 
 	var emailBody = {
 	  personalizations: [
@@ -106,7 +68,7 @@ function prepareNotificationEmail(reqBody) {
 	  ],
 	  from: {
 	    email: Settings.senderEmail,
-	    name: Settings.senderEmail,
+	    name: Settings.senderName,
 	  },
 	  content: [
 	    {
@@ -124,7 +86,7 @@ exports.sendConfirmation = (req, res, next) => {
 	var request = sg.emptyRequest({
 		method: 'POST',
 		path: '/v3/mail/send',
-		body: prepareEmail(req.body)
+		body: prepareConfirmationEmail(req.body)
 	});
 
 	sg.API(request, function(error, response) {
@@ -144,7 +106,7 @@ exports.sendConfirmation = (req, res, next) => {
 exports.addUser = function(req, res, next) {
 	addUserToList(req.body[0], function() {
 		//send notification about the new signup
-		if(Settings.sendNotification) {
+		if (Settings.sendNotification) {
 			console.log("Sending notification");
 
 			var request = sg.emptyRequest({
