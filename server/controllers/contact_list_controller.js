@@ -5,7 +5,7 @@ const path = require('path');
 const Settings = require('../../settings');
 const optIn = 'opt-in';
 
-function prepareEmail(reqBody) {
+function prepareConfirmationEmail(reqBody) {
 	const subject = "Please Confirm Your Email Address";
 	const url = formatUrl(Settings.url) + '/success';
 	const link = "<a href='" + url + "'>this link</a>"
@@ -31,7 +31,7 @@ function prepareEmail(reqBody) {
 	  ],
 	  from: {
 	    email: Settings.senderEmail,
-	    name: Settings.senderEmail,
+	    name: Settings.senderName,
 	  },
 	  content: [
 	    {
@@ -51,21 +51,48 @@ function prepareEmail(reqBody) {
 	return emailBody;
 }
 
+function prepareNotificationEmail(reqBody) {
+	const subject = "New email signup";
+	const mailText = "A new person just confirmed they would look to receive your emails via your email subscription widget.<br/><b>Name: </b>" + reqBody.first_name + " " + reqBody.last_name + "<br/><b>Email: </b>" + reqBody.email;
+
+	var emailBody = {
+	  personalizations: [
+	    {
+	      to: [
+	        {
+	          email: Settings.notificationEmail,
+	        }
+	      ],
+	      subject: subject
+	    },
+	  ],
+	  from: {
+	    email: Settings.senderEmail,
+	    name: Settings.senderName,
+	  },
+	  content: [
+	    {
+	      type: "text/html",
+	      value: mailText,
+	    }
+	  ],
+	}
+
+	return emailBody;
+}
+
 // Send confirmation email to contact with link to confirm email
 exports.sendConfirmation = (req, res, next) => {
 	var request = sg.emptyRequest({
 		method: 'POST',
 		path: '/v3/mail/send',
-		body: prepareEmail(req.body)
+		body: prepareConfirmationEmail(req.body)
 	});
 
 	sg.API(request, function(error, response) {
 		if (error) {
 			console.log('Error response received');
 		}
-		console.log(response.statusCode);
-		console.log(response.body);
-		console.log(response.headers);
 
 		if (response.statusCode >= 200 && response.statusCode < 300) {
 			res.sendFile(path.join(__dirname, '../static/check-inbox.html'));
@@ -78,6 +105,23 @@ exports.sendConfirmation = (req, res, next) => {
 // Create new contact and add contact to given list
 exports.addUser = function(req, res, next) {
 	addUserToList(req.body[0], function() {
+		//send notification about the new signup
+		if (Settings.sendNotification) {
+			console.log("Sending notification");
+
+			var request = sg.emptyRequest({
+				method: 'POST',
+				path: '/v3/mail/send',
+				body: prepareNotificationEmail(req.body[0])
+			});
+
+			sg.API(request, function(error, response) {
+				if (error) {
+					console.log('Error sending notification');
+				}
+			});
+		}
+
 		res.sendStatus(200);
 	});
 }
@@ -86,7 +130,7 @@ function addUserToList(emailBody, callback) {
 	console.log(emailBody);
 
 	var ignoreFields = ['ip', 'sg_event_id', 'sg_message_id', 'useragent', 'event',
-		'url_offset', 'time_sent', 'timestamp', 'url', 'type'];
+		'url_offset', 'time_sent', 'timestamp', 'url', 'type', 'smtp-id'];
 
 	var customFields = [{}];
 	var customFieldArr = [];
@@ -116,12 +160,8 @@ function addUserToList(emailBody, callback) {
 			});
 
 			sg.API(request, function(error, response) {
-		    	console.log(response.statusCode)
-		    	console.log(response.body)
-		    	console.log(response.headers)
-
 		    	if (listId) {
-					var contactID = JSON.parse(response.body.toString()).persisted_recipients[0];			
+					var contactID = JSON.parse(response.body.toString()).persisted_recipients[0];
 					var request = sg.emptyRequest({
 						method: 'POST',
 						path: '/v3/contactdb/lists/' + listId + '/recipients/' + contactID,
@@ -131,7 +171,7 @@ function addUserToList(emailBody, callback) {
 				    	console.log(response.statusCode)
 				    	console.log(response.body)
 				    	console.log(response.headers)
-						
+
 						callback();
 					});
 				} else {
@@ -142,7 +182,7 @@ function addUserToList(emailBody, callback) {
 			callback();
 		}
 	});
-	
+
 }
 
 function checkAndAddCustomFields(submittedFields, callback) {
@@ -158,7 +198,7 @@ function checkAndAddCustomFields(submittedFields, callback) {
 
     	var existingCustomFields = JSON.parse(response.body);
 		var fieldsToCreate = [];
-		
+
 		submittedFields.map((submittedField) => {
 			var fieldExists = false;
 			existingCustomFields.custom_fields.map((field) => {
@@ -184,10 +224,6 @@ function checkAndAddCustomFields(submittedFields, callback) {
 				});
 
 				sg.API(request, function(error, response) {
-			    	console.log(response.statusCode)
-			    	console.log(response.body)
-			    	console.log(response.headers)
-
 			    	callback();
 			    });
 			});
