@@ -38,7 +38,7 @@ function prepareConfirmationEmail(reqBody) {
 	      type: "text/html",
 	      value: mailText,
 	    }
-	  ],
+	  ]
 	}
 
 	const templateId = Settings.templateId;

@@ -125,4 +125,6 @@ Finally, you may change the content of the confirmation email by changing the *m
 mailText = "Thanks for signing up! Click <a href='" + url + "'>this link</a> \
 	to sign up!  This link will be active for 24 hours."
 ```
+
+[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/devchas/https://github.com/devchas/sendgrid_subscription_widget)
  
