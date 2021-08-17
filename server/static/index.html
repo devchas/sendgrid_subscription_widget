@@ -500,6 +500,10 @@ template {
 }
 
 /* リセットCSSここまで--------------------------- */
+</style>
+
+<!-- pc版 -->
+<style media="screen and ( min-width:600px )">
 .sp { display: none !important; }
 
 .logo1 {
@@ -610,6 +614,119 @@ footer p {
     font-family: '小塚ゴシック Pro','Kozuka Gothic Pro',sans-serif;
     color: white;
 }
+</style>
+	      
+<style media="screen and ( max-width:599px )">
+.pc { display: none !important; }
+
+.logo1 {
+    margin: 0 auto;
+    width: 320px;
+    height: 780px;
+    background: url(../img/backgroundcolor_sp.png) center center no-repeat,
+                url(../img/backgroundimage_sp.png) center center no-repeat;
+}
+
+.logo1 img {
+    margin: 100px 20px 90px 20px;
+}
+
+.logo1_text {
+    width: 100%;
+}
+
+.logo1_text p {
+    text-align: center;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+}
+
+.mail_form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.input_form {
+  margin-bottom: 15px;
+  width: 280px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: snow;
+  text-align: left;
+}
+
+.input_form::placeholder {
+  color: rgba(227, 95, 111, 0.4);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.input_btn {
+  width: 280px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  color: snow;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+  background-color: #e35f6f;
+} 
+
+.mail_icon {
+  font-size: 16px;
+}
+
+.sns_icon {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  color: snow;
+  font-size: 20px;
+}
+
+.instagram {
+  margin-right: 36px;
+}
+
+.facebook {
+  margin-right: 36px;
+}
+
+.logo2 {
+    margin: 0 auto;
+    width: 320px;
+    height: 100px;
+    background-color: snow;
+    display: flex;
+    align-items: center;
+}
+
+.logo2 img {
+    margin: 0 auto;
+}
+
+footer {
+    margin: 0 auto;
+    width: 320px;
+    height: 44px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.2;
+    font-family: '小塚ゴシック Pro','Kozuka Gothic Pro',sans-serif;
+    color: white;
+}      
 </style>
 </head>
 <body>
