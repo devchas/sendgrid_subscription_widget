@@ -1,63 +1,55 @@
-<form action="https://sendgridgirlstalkdemo.herokuapp.com/confirmEmail" method="post">
-	<fieldset>
-		<legend>Enter Your Information</legend>
-		
-		<label for="email">Email:</label>
-		<input type="text" name="email" placeholder="hello@example.com" /><br>
-		
-		<label for="first_name">First Name:</label>		
-		<input type="text" name="first_name" placeholder="John" /><br>
-		
-		<label for="last_name">Last Name:</label>
-		<input type="text" name="last_name" placeholder="Doe" /><br>
-
-		<button type="submit" value="Submit" />SIGN UP</button>
-	</fieldset>
-</form>
-
-
-<style>
-html {
-	font-family: arial;
-	font-size: 16;
-}
-form {
-	display: inline-block;
-}
-legend {
-	font-size: 14;
-}
-label {
-	width: 100px;
-	display: inline-block;
-	margin-left: 8;
-	margin-top: 15;
-	font-weight: bold;
-}
-input, button {
-	font-size: 12px;
-	padding: 5px;
-	margin-right: 8;
-}
-input {
-	border-radius: 3px;
-	border: 1px solid #ccc;
-	height: 25;
-	width: 200px;
-}
-button {
-	border-radius: 3px;
-	border: 0px solid #ccc;
-	margin-top: 15px;
-	margin-bottom: 5px;
-	background-color: #1A82E2;
-	color: white;
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	width: 308px;
-	height: 32px;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	float: right;
-}
-</style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen and ( min-width:600px )" href="css/style.css">
+	<link rel="stylesheet" type="text/css" media="screen and ( max-width:599px )" href="css/style_sp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/409bb830e7.js" crossorigin="anonymous"></script>
+    <title>みんなの女子トーク</title>
+</head>
+<body>
+    <section>
+        <div class="logo1">
+            <img class="pc" src="img/logo1.png" alt="みんなの女子トーク">
+            <img class="sp" src="img/logo1_sp.png" alt="みんなの女子トーク">
+            <div class="logo1_text">
+                <p>最新情報をGETするには<br class="sp">以下にメールアドレスを入力して<br>「メールを登録する」をクリック。</p>
+            </div>
+            <div class="mail_form">
+				<form action="https://sendgridgirlstalkdemo.herokuapp.com/confirmEmail" method="post">
+					<fieldset>
+						<!-- <legend>Enter Your Information</legend> -->
+						<!-- <label for="email">Email:</label> -->
+						<input class="input_form" type="email" name="email" placeholder="enter your email">
+						
+						<!-- <label for="first_name">First Name:</label>		
+						<input type="text" name="first_name" placeholder="John" /><br>
+						
+						<label for="last_name">Last Name:</label>
+						<input type="text" name="last_name" placeholder="Doe" /><br> -->
+				
+						<button class="input_btn" type="submit" value="Submit"><span class="mail_icon"><i class="far fa-envelope"></i></span>メールを登録する</button>
+					</fieldset>
+				</form>
+            </div>
+            <div class="sns_icon">
+                <div class="instagram"><span><i class="fab fa-instagram"></i></span></div>
+                <div class="facebook"><span><i class="fab fa-facebook-f"></i></span></div>
+                <div class="twitter"><span><i class="fab fa-twitter"></i></span></div>
+            </div>
+        </div>
+        <div class="logo2">
+            <img class="pc" src="img/logo2.png" alt="みんなの女子トークロゴ">
+            <img class="sp" src="img/logo2_sp.png" alt="みんなの女子トークロゴ">
+        </div>
+        <footer>
+            <p>Copyright (C) Girl's TALK All Rights Reserved.</p>
+        </footer>
+    </section>
+</body>
+</html>
