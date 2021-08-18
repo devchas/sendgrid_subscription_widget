@@ -2,7 +2,7 @@
 exports.url = 'https://sendgridgirlstalkdemo.herokuapp.com/';
 
 exports.senderEmail = "sender@example.com";
-exports.senderName = "Sender Name";
+exports.senderName = "みんなの女子トーク";
 
 // set 'exports.listId = null' to add contact to all contacts, but no specific list
 // or a string with the listId to add to a specific list
