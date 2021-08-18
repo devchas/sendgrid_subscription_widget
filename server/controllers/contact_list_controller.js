@@ -6,10 +6,10 @@ const Settings = require('../../settings');
 const optIn = 'opt-in';
 
 function prepareConfirmationEmail(reqBody) {
-	const subject = "Please Confirm Your Email Address";
+	const subject = "［みんなの女子トーク］仮登録ありがとうございます。";
 	const url = formatUrl(Settings.url) + '/success';
-	const link = "<a href='" + url + "'>this link</a>"
-	const mailText = "Thanks for signing up! Click " + link + " to sign up!  This link will be active for 24 hours.";
+	const link = "<a href='" + url + "'>こちら</a>"
+	const mailText = "仮登録ありがとうございます。" + link + "をクリックして本登録を完了してください。URLは24時間有効です。";
 
 	var emailBody = {
 	  personalizations: [
