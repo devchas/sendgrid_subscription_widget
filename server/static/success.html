@@ -507,15 +507,18 @@ template {
 .sp { display: none !important; }
 
 .logo1 {
-    margin: 0 auto;
-    width: 1200px;
+    width: 100%;
     height: 980px;
-    background: url(http://drive.google.com/uc?export=view&id=1NUoF-cKo_HiQy4wOX3daGltEEf2EDhqx) center center no-repeat,
+    background: url(http://drive.google.com/uc?export=view&id=1NUoF-cKo_HiQy4wOX3daGltEEf2EDhqx) center center / cover no-repeat,
                 url(http://drive.google.com/uc?export=view&id=1POyM0_t5AfLk2DvwU837sF33D0uIsGB4) center center no-repeat;
+}
+	
+.logo_img {
+    text-align: center;
 }
 
 .logo1 img {
-    margin: 170px 220px 60px 220px;
+    margin: 170px 0px 60px 0px;
 }
 
 .logo1_text {
@@ -586,7 +589,7 @@ template {
 
 .logo2 {
     margin: 0 auto;
-    width: 1200px;
+    width: 100%;
     height: 160px;
     background-color: snow;
     display: flex;
@@ -599,7 +602,7 @@ template {
 
 footer {
     margin: 0 auto;
-    width: 1200px;
+    width: 100%;
     height: 50px;
     background-color: black;
     display: flex;
@@ -621,15 +624,18 @@ footer p {
 .pc { display: none !important; }
 
 .logo1 {
-    margin: 0 auto;
-    width: 320px;
+    width: 100%;
     height: 780px;
-    background: url(https://drive.google.com/uc?export=view&id=1UmdTRB3kGJW6RbFCt7T7BI8b2j2H3IC4) center center no-repeat,
+    background: url(https://drive.google.com/uc?export=view&id=1UmdTRB3kGJW6RbFCt7T7BI8b2j2H3IC4) center center / cover no-repeat,
                 url(https://drive.google.com/uc?export=view&id=1dafmXPIANNW0wMNrJ2Y8KVYccaUBko0L) center center no-repeat;
+}
+	
+.logo_img {
+  text-align: center;
 }
 
 .logo1 img {
-    margin: 100px 20px 90px 20px;
+    margin: 100px 0px 90px 0px;
 }
 
 .logo1_text {
@@ -700,7 +706,7 @@ footer p {
 
 .logo2 {
     margin: 0 auto;
-    width: 320px;
+    width: 100%;
     height: 100px;
     background-color: snow;
     display: flex;
@@ -713,7 +719,7 @@ footer p {
 
 footer {
     margin: 0 auto;
-    width: 320px;
+    width: 100%;
     height: 44px;
     background-color: black;
     display: flex;
@@ -734,10 +740,12 @@ footer p {
 <body>
     <section>
         <div class="logo1">
-            <img class="pc" src="http://drive.google.com/uc?export=view&id=1-iWrMXpZEzJVipdfCdzCx3-w2hxArC7w" alt="みんなの女子トーク">
-            <img class="sp" src="http://drive.google.com/uc?export=view&id=1_iSPVNy1KA9cA-yOHr9SmGrbARUz1vcF" alt="みんなの女子トーク">
+		<div class="logo_img">
+            		<img class="pc" src="http://drive.google.com/uc?export=view&id=1-iWrMXpZEzJVipdfCdzCx3-w2hxArC7w" alt="みんなの女子トーク">
+            		<img class="sp" src="http://drive.google.com/uc?export=view&id=1_iSPVNy1KA9cA-yOHr9SmGrbARUz1vcF" alt="みんなの女子トーク">
+		</div>
             <div class="logo1_text">
-                <p>Thank you for confirming your email address.<br>You've been added to our mailing list.</p>
+                <p>本登録ありがとうございます。<br>メールマガジン配信をどうぞお楽しみに。</p>
             </div>
             <div class="sns_icon">
                 <div class="instagram"><span><i class="fab fa-instagram"></i></span></div>
