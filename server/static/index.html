@@ -660,21 +660,42 @@ footer p {
   text-align: center;
 }
 
-.logo1 img {
-    margin: 100px 0px 90px 0px;
+.logo_img1 {
+    margin-top: 20px;
 }
 
 .logo1_text {
     width: 100%;
 }
 
-.logo1_text p {
+.logo1 p {
     text-align: center;
     font-size: 12px;
     line-height: 2;
     letter-spacing: 0.05em;
     font-family: 'Noto Sans JP', sans-serif;
     color: white;
+}
+
+.comingsoon {
+  width: 320px;
+  display: flex;
+	align-items: center;
+  margin: 0 auto;
+}
+
+.comingsoon:before,
+.comingsoon:after {
+  content: "";
+  flex-grow: 1;
+  height: 2px; /* 線の太さ */
+  background: #FFF; /* 線の色 */
+  margin:0 1em; /* 文字と線の余白 */
+}
+
+.comingsoon .schedule {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .mail_form {
