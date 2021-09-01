@@ -517,21 +517,47 @@ template {
     text-align: center;
 }
 
-.logo1 img {
-    margin: 170px 0px 60px 0px;
+.logo_img1 {
+    margin: 100px 0px 20px 0px;
+}
+
+.logo_img2 {
+    margin-top: 24px;
 }
 
 .logo1_text {
+    margin-top: 24px;
     width: 100%;
 }
 
-.logo1_text p {
+.logo1 p {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 2;
     letter-spacing: 0.1em;
     font-family: 'Noto Sans JP', sans-serif;
     color: white;
+}
+
+.comingsoon {
+  width: 750px;
+  display: flex;
+	align-items: center;
+  margin: 0 auto;
+}
+
+.comingsoon:before,
+.comingsoon:after {
+  content: "";
+  flex-grow: 1;
+  height: 2px; /* 線の太さ */
+  background: #FFF; /* 線の色 */
+  margin:0 2em; /* 文字と線の余白 */
+}
+
+.comingsoon .schedule {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .mail_form {
@@ -634,21 +660,42 @@ footer p {
   text-align: center;
 }
 
-.logo1 img {
-    margin: 100px 0px 90px 0px;
+.logo_img1 {
+    margin-top: 20px;
 }
 
 .logo1_text {
     width: 100%;
 }
 
-.logo1_text p {
+.logo1 p {
     text-align: center;
     font-size: 12px;
     line-height: 2;
     letter-spacing: 0.05em;
     font-family: 'Noto Sans JP', sans-serif;
     color: white;
+}
+
+.comingsoon {
+  width: 320px;
+  display: flex;
+	align-items: center;
+  margin: 0 auto;
+}
+
+.comingsoon:before,
+.comingsoon:after {
+  content: "";
+  flex-grow: 1;
+  height: 2px; /* 線の太さ */
+  background: #FFF; /* 線の色 */
+  margin:0 1em; /* 文字と線の余白 */
+}
+
+.comingsoon .schedule {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .mail_form {
@@ -741,15 +788,21 @@ footer p {
     <section>
         <div class="logo1">
 		<div class="logo_img">
-            		<img class="pc" src="http://drive.google.com/uc?export=view&id=1-iWrMXpZEzJVipdfCdzCx3-w2hxArC7w" alt="みんなの女子トーク">
-            		<img class="sp" src="http://drive.google.com/uc?export=view&id=1_iSPVNy1KA9cA-yOHr9SmGrbARUz1vcF" alt="みんなの女子トーク">
-		</div>
+              		<img class="pc logo_img1" src="https://drive.google.com/uc?export=view&id=1jEk2DUAh7HX840MDUfgktJV01xrgIK5y" alt="みんなの女子トーク1">
+              		<img class="sp logo_img1" src="https://drive.google.com/uc?export=view&id=1AMbf77UTR-nU9wsssssezVawEaeddbGe" alt="みんなの女子トーク1">
+              		<p>女性限定で自由におしゃべりすることができる掲示板<br>「みんなの女子トーク」がこの冬オープンします。<br>様々なお部屋があり、<br class="sp">同じような状況の人に聞きたいことを聞いたり、<br>悩みを打ち明けたり、<br class="sp">女性にとって役立つコンテンツです。<br>マナーを守ってみんなで楽しみましょう！</p>
+              		<img class="pc logo_img2" src="https://drive.google.com/uc?export=view&id=1tH492UteBSImZDcyZHtTtglng0P7Rr6q" alt="みんなの女子トーク2">
+              		<img class="sp logo_img2" src="https://drive.google.com/uc?export=view&id=12u3jAeBQ4qMowzBdVetEdOy-Y8WEECur" alt="みんなの女子トーク2">
+              		<div class="comingsoon">
+                		<p class="schedule">2021年冬公開予定</p>
+             		</div>
+            	</div>
             <div class="logo1_text">
                 <p>ご登録ありがとうございます。<br>ご登録いただいたメールアドレスに本登録用のURLをお送りしました。<br>お送りしたURLから本登録を行ってください。</p>
             </div>
             <div class="sns_icon">
-                <div class="instagram"><span><i class="fab fa-instagram"></i></span></div>
-                <div class="facebook"><span><i class="fab fa-facebook-f"></i></span></div>
+<!--                 <div class="instagram"><span><i class="fab fa-instagram"></i></span></div> -->
+<!--                 <div class="facebook"><span><i class="fab fa-facebook-f"></i></span></div> -->
                 <div class="twitter"><a rel="noopener" href="https://twitter.com/minjoshi_talk" target="_blank"><span><i class="fab fa-twitter"></i></span></a></div>
             </div>
         </div>
