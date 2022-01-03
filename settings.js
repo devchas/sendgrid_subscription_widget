@@ -1,7 +1,7 @@
 // Change the url to the domain of your app
 exports.url = 'https://sendgrid-subscribe.herokuapp.com/';
 
-exports.senderEmail = "viestinta@pohjolanliikenne.fi";
+exports.senderEmail = "tickets@pohjolanliikenne.fi";
 exports.senderName = "Pohjolan Liikenne";
 
 // set 'exports.listId = null' to add contact to all contacts, but no specific list
@@ -14,4 +14,4 @@ exports.templateId = null;
 
 // receive an email when a new signup is confirmed
 exports.sendNotification = true;
-exports.notificationEmail = "viestinta@pohjolanliikenne.fi";
+exports.notificationEmail = "tickets@pohjolanliikenne.fi";
