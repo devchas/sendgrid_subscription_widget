@@ -1,8 +1,8 @@
 // Change the url to the domain of your app
-exports.url = 'http://localhost:3090';
+exports.url = 'https://sendgrid-subscribe.herokuapp.com/';
 
-exports.senderEmail = "sender@example.com";
-exports.senderName = "Sender Name";
+exports.senderEmail = "viestinta@pohjolanliikenne.fi";
+exports.senderName = "Pohjolan Liikenne";
 
 // set 'exports.listId = null' to add contact to all contacts, but no specific list
 // or a string with the listId to add to a specific list
