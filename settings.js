@@ -14,4 +14,4 @@ exports.templateId = null;
 
 // receive an email when a new signup is confirmed
 exports.sendNotification = true;
-exports.notificationEmail = "admin@example.com";
+exports.notificationEmail = "viestinta@pohjolanliikenne.fi";
