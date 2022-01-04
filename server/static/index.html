@@ -21,7 +21,7 @@
           <li>
 		  <input type="checkbox" checked="checked" id="markkinointilupa">
   		<span class="checkmark"></span>
-            <label class="container1" for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
+            <label for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
 		    markkinointiviestejä noin kerran kuukaudessa sisältäen lipputarjouksia, alennuskoodeja
 		  ja etuja.
 		</label>
@@ -147,21 +147,9 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 	letter-spacing: .09em;
 }
 		/* Customize the label (the container) */
-.container1 {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
 /* Hide the browser's default checkbox */
-.container1 input {
+.container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -180,12 +168,12 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 }
 
 /* On mouse-over, add a grey background color */
-.container1:hover input ~ .checkmark {
+.container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container1 input:checked ~ .checkmark {
+.container input:checked ~ .checkmark {
   background-color: #ccc;
 }
 
@@ -197,12 +185,12 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Show the checkmark when checked */
-.container1 input:checked ~ .checkmark:after {
+.container input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container1 .checkmark:after {
+.container .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
