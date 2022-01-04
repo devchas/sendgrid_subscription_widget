@@ -1,7 +1,8 @@
 <div class="container">
   <form action="https://sendgrid-subscribe.herokuapp.com/confirmEmail" method="post">
     <fieldset>
-	    <legend>Tilaa Pohjolan Liikenteen uutiskirje - saat edut ja tarjoukset sähköpostiisi ensimmäisten joukossa.</legend>
+	    <legend></legend>
+	    <div class="chapter">Tilaa Pohjolan Liikenteen uutiskirje - saat edut ja tarjoukset sähköpostiisi ensimmäisten joukossa.</div>
 	    <ul class="flex-outer">
       <li>
         <label for="email">Sähköposti</label>
@@ -48,10 +49,10 @@ border: none;
 }
 
 legend {
-  background-color: #333;
+  background-color: transparent;
   color: #ffffff;
 font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
-  padding: 10px 20px;
+  padding: 0;
 }
 
 .container {
@@ -134,4 +135,12 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 .flex-inner li {
   max-width: 800px;
 }
+chapter {
+color: #ffffff;
+font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+	text-transform: uppercase;
+	font-weight: 600;
+  max-width: 800px;
+}
+		
 </style>
