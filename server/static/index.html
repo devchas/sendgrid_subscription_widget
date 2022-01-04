@@ -18,7 +18,7 @@
         <input type="text" name="last-name" placeholder="Sukunimi" />
       </li>
       <li>
-        <ul class="flex-inner">
+        <ul class="flex-outer">
           <li><input type="checkbox" id="markkinointilupa">
             <label for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
 		    markkinointiviestejä noin kerran kuukaudessa sisältäen lipputarjouksia, alennuskoodeja
@@ -105,12 +105,12 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 .flex-outer > li > label,
 .flex-outer li p {
   flex: 1 0 120px;
-  max-width: 220px;
+  max-width: 820px;
 }
 
 .flex-outer > li > label + *,
 .flex-inner {
-  flex: 1 0 120px;
+  flex: 1 0 220px;
 }
 
 .flex-outer li p {
