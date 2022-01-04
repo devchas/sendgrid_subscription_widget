@@ -1,184 +1,124 @@
-<form action="https://sendgrid-subscribe.herokuapp.com/confirmEmail" method="post">
-	<fieldset>
-		<legend>Tilaa Pohjolan Liikenteen uutiskirje ja saat parhaimmat tarjouksemme ensimmäisten joukossa</legend>
-		<div></div>
-		<div></div>
-		<p class="chapter1">Tässä on kaikkea markkinointitekstiä joka näyttää ja kuulostaa hienolta. 
-			Esimerkiksi että Tilaa Pohjolan Liikenteen uutiskirje ja saat parhaimmat tarjouksemme ensimmäisten joukossa
-		ja myöskin että tämä uutiskirje on parasta ikinä eikä sellaista saisi sanoa koskaan.</p>
-		<label for="email"></label>
-		<input type="text" name="email" placeholder="Sähköposti" /><br>
-		<div></div>
-		<div></div>
-		
-		<label for="first_name"></label>		
-		<input type="text" name="first_name" placeholder="Etunimi" /><br>
-		
-		<label for="last_name"></label>
-		<input type="text" name="last_name" placeholder="Sukunimi" /><br>
-		<label class="container">One
-  		<input type="checkbox" checked="checked">
-  		<span class="checkmark"></span>
-		</label>
-		<br>
-
-		<button type="submit" value="Submit" />Tilaa uutiskirje</button>
+<div class="container">
+  <form action="https://sendgrid-subscribe.herokuapp.com/confirmEmail" method="post">
+    <fieldset><ul class="flex-outer">
+      <li>
+        <label for="email">Sähköposti</label>
+        <input type="text" name="email" placeholder="Sähköposti" />
+      </li>
+      <li>
+       <label for="first_name">Etunimi</label>
+        <input type="text" name="email" placeholder="Etunimi" />
+      </li>
+      <li>
+        <label for="last_name">Sukunimi</label>
+        <input type="text" name="last-name" placeholder="Sukunimi" />
+      </li>
+      <li>
+        <p>Age</p>
+        <ul class="flex-inner">
+          <li>
+            <input type="checkbox" id="markkinointilupa">
+            <label for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
+		    markkinointiviestejä noin kerran kuukaudessa sisältäen lipputarjouksia, alennuskoodeja
+		  ja etuja.</label>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button type="submit" value="Submit" />Tilaa uutiskirje</button>
+      </li>
+    </ul>
 	</fieldset>
-</form>
+  </form>
+</div>
 
 
 <style>
-html {
-	font-family: proxima-nova,Helvetica,Arial,sans-serif;
-	font-size: 16;
-	margin-bottom: 20;
-	margin-top: 10;
-	padding-left: 0;
-	padding-right: 30;
-	padding-top: 30;
-	padding-bottom: 30;
-	border: 0.5px solid #ccc;
+	body {
+  font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  background: #3AAFAB;
+  color: #fff;
+  padding: 50px 0;
 }
-form {
-	display: inline-block;
-}
-legend {
-	float: left;
-	-webkit-font-smoothing: antialiased;
-    	font-family: proxima-nova,Helvetica,Arial,sans-serif;
-    	font-size: 20;
-    	line-height: 1.625;
-    	font-weight: 600;
-	margin-bottom: 20;
-	margin-top: 10;
-}
-label {
-	width: 100px;
-	display: inline-block;
-	margin-left: 8;
-	margin-top: 15;
-	font-weight: bold;
 
-}
-input, button {
-	float: left;
-	font-size: 14px;
-	color: #eeeeee;
-	padding: 10px;
-	margin-right: 10;
-	-webkit-font-smoothing: antialiased;
-    	font-family: proxima-nova,Helvetica,Arial,sans-serif;
-    	line-height: 1.625;
-    	font-weight: 300;
-	margin-bottom: 20;
-	margin-top: 10;
-}
-input {
-	float: left;
-	border-radius: 0px;
-	border: 0.5px solid #ccc;
-	height: 30;
-	width: 400px;
-	margin-bottom: 20;
-	margin-top: 10;
-	padding-left: 20;
-	padding-right: 20;
-	padding-top: 10;
-	padding-bottom: 10;
-}
-button {
-	float: left;
-	color: rgba(0,0,0,.85);
-    background-color: transparent;
-    border-color: rgba(0,0,0,.6);
-	margin-bottom: 20;
-	margin-top: 10;
-	padding-left: 20;
-	padding-right: 20;
-	padding-top: 10;
-	padding-bottom: 10;
-	-webkit-font-smoothing: antialiased;
-    	font-family: proxima-nova,Helvetica,Arial,sans-serif;
-    	font-size: 14;
-    	line-height: 1.625;
-    	font-weight: 300;
-}
-chapter1 {
-	float: left;
-	-webkit-font-smoothing: antialiased;
-    	font-family: proxima-nova,Helvetica,Arial,sans-serif;
-    	font-size: 14;
-    	line-height: 1.625;
-    	font-weight: 300;
-	margin-bottom: 20;
-	margin-top: 10;
-	}
-	
-	/* Customize the label (the container) */
 .container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+.container * {
+  box-sizing: border-box;
 }
 
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
 }
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
+.flex-outer {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #ccc;
+.flex-outer li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;  
 }
 
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
+.flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
 }
 
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.flex-outer li label,
+.flex-outer li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer li p {
+  margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']),
+.flex-outer li textarea {
+  padding: 15px;
+  border: none;
+}
+
+.flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #333;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}
+
+.flex-inner li {
+  width: 100px;
 }
 </style>
