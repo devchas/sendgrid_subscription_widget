@@ -2,13 +2,13 @@
 	<fieldset>
 		<legend>Tilaa uutiskirje syöttämällä tietosi:</legend>
 		
-		<label for="email">Sähköposti:</label>
-		<input type="text" name="email" placeholder="Esimerkki: etunimi.sukunimi@gmail.com" /><br>
+		<label for="email"></label>
+		<input type="text" name="email" placeholder="Sähköposti" /><br>
 		
-		<label for="first_name">Etunimi:</label>		
+		<label for="first_name"></label>		
 		<input type="text" name="first_name" placeholder="Etunimi" /><br>
 		
-		<label for="last_name">Last Name:</label>
+		<label for="last_name"></label>
 		<input type="text" name="last_name" placeholder="Sukunimi" /><br>
 
 		<button type="submit" value="Submit" />Tilaa uutiskirje</button>
@@ -18,14 +18,18 @@
 
 <style>
 html {
-	font-family: arial;
+	font-family: proxima-nova,Helvetica,Arial,sans-serif;
 	font-size: 16;
 }
 form {
 	display: inline-block;
 }
 legend {
-	font-size: 14;
+	-webkit-font-smoothing: antialiased;
+    	font-family: proxima-nova,Helvetica,Arial,sans-serif;
+    	font-size: 1rem;
+    	line-height: 1.625;
+    	font-weight: 600;
 }
 label {
 	width: 100px;
@@ -35,9 +39,10 @@ label {
 	font-weight: bold;
 }
 input, button {
-	font-size: 12px;
-	padding: 5px;
-	margin-right: 8;
+	font-size: 16px;
+	color: #eeeeee;
+	padding: 10px;
+	margin-right: 10;
 }
 input {
 	border-radius: 3px;
@@ -46,18 +51,9 @@ input {
 	width: 200px;
 }
 button {
-	border-radius: 3px;
-	border: 0px solid #ccc;
-	margin-top: 15px;
-	margin-bottom: 5px;
-	background-color: #1A82E2;
-	color: white;
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	width: 308px;
-	height: 32px;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	float: right;
+	float: left;
+	color: rgba(0,0,0,.85);
+    background-color: transparent;
+    border-color: rgba(0,0,0,.6);
 }
 </style>
