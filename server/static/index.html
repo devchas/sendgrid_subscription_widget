@@ -21,7 +21,7 @@
           <li>
 		  <input type="checkbox" checked="checked" id="markkinointilupa">
   		<span class="checkmark"></span>
-            <label for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
+            <label class="boxi" for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
 		    markkinointiviestejä noin kerran kuukaudessa sisältäen lipputarjouksia, alennuskoodeja
 		  ja etuja.
 		</label>
@@ -146,10 +146,25 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 	margin-top: 30;
 	letter-spacing: .09em;
 }
-		/* Customize the label (the container) */
-
+		
+	/* Customize the label (the container) */
+.boxi {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  cursor: pointer;
+    font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /* Hide the browser's default checkbox */
-.container input {
+.boxi input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -168,12 +183,12 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.boxi:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.boxi input:checked ~ .checkmark {
   background-color: #ccc;
 }
 
@@ -185,12 +200,12 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.boxi input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.boxi .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
