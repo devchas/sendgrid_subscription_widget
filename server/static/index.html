@@ -2,9 +2,13 @@
   <form action="https://sendgrid-subscribe.herokuapp.com/confirmEmail" method="post">
     <fieldset>
 	    <legend></legend>
-	    <div class="chapter">Tilaa Pohjolan Liikenteen uutiskirje - saat edut ja tarjoukset suoraan sähköpostiisi.</div>
+	    <div class="chapter">Liity Pohjolan Liikenteen uutiskirjeen tilaajaksi</div>
 	    <div class="chapter"></div>
-	    <ul class="flex-outer">
+	    <div class="chapter2">Uutiskirjeen tilaajana saat ensimmäisenä
+	    tiedon eduista ja tarjouksista sekä ajankohtaisimmat uutiset Länsi-Uudenmaan liikenteestämme suoraan sähköpostiisi. Lähetämme Sinulle tietoa tarjouksista ja
+		aikatauluista noin kerran kuussa.
+	    Uutiskirjeen tilaaminen kannattaa, sillä tilaajana pääset ensimmäisten joukossa hyödyntämään mm. tarjouksemme, jotka ovat voimassa vain rajoitetun ajan! </div>
+	    Liity tilaajaksi täyttämällä tietosi allaoleviin kenttiin.<ul class="flex-outer">
       <li>
         <label for="email">Sähköposti</label>
         <input type="text" name="email" placeholder="Sähköposti" />
@@ -165,6 +169,7 @@ transition-duration: 0.4s;
 .flex-cent li label,
 .flex-cent li p {
   padding-left: 10px;
+ font: normal 19px/1.2 "Fira Sans", "Helvetica Neue", sans-serif;
   font-weight: 300;
   letter-spacing: .07em;
 	font-size: 16;
@@ -202,5 +207,15 @@ font: normal 19px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
 	padding-top: 30;
 	letter-spacing: .07em;
 	font-weight: 600;
+}
+	.chapter2 {
+color: #ffffff;
+font: normal 16px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  max-width: 800px;
+	padding-left: 70;
+	padding-bottom: 10;
+	padding-top: 30;
+	letter-spacing: .06em;
+	font-weight: 300;
 }
 </style>
