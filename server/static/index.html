@@ -18,7 +18,7 @@
         <input type="text" name="last-name" placeholder="Sukunimi" />
       </li>
       <li>
-        <ul class="flex-outer">
+        <ul class="flex-cent">
           <li><input type="checkbox" id="markkinointilupa">
             <label for="markkinointilupa">Hyväksyn, että Pohjolan Liikenne lähettää minulle 
 		    markkinointiviestejä noin kerran kuukaudessa.
@@ -137,7 +137,55 @@ transition-duration: 0.4s;
   background: #ffffff;
   color: #333;
 }
+.flex-cent{
+  list-style-type: none;
+  padding: 0;
+}
 
+.flex-cent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-cent li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.flex-cent > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-cent li label,
+.flex-cent li p {
+  padding-left: 10px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+	font-size: 16;
+	line-height: 1.4;
+}
+
+.flex-cent > li > label,
+.flex-cent li p {
+  flex: 1 0 120px;
+  max-width: 820px;
+}
+
+.flex-cent > li > label + *{
+  flex: 1 0 220px;
+}
+
+.flex-cent li p {
+  margin: 0;
+}
+
+.flex-cent li input:not([type='checkbox']),
+.flex-cent li textarea {
+  padding: 15px;
+  border: none;
+}
 .flex-inner li {
   max-width: 1200px;
 }
