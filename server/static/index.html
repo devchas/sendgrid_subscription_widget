@@ -123,12 +123,19 @@ font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
   margin-left: auto;
   padding: 14px 22px;
   border: solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 3px 3px 3px 3px;
   background: #333;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: .09em;
   border-radius: 0px;
+transition-duration: 0.4s;
+}
+.flex-outer li button:hover {
+  border: solid white;
+  border-width: 3px 3px 3px 3px;
+  background: #ffffff;
+  color: #333;
 }
 
 .flex-inner li {
