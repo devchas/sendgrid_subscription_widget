@@ -1,63 +1,829 @@
-<form action="http://localhost:3090/confirmEmail" method="post">
-	<fieldset>
-		<legend>Enter Your Information</legend>
-		
-		<label for="email">Email:</label>
-		<input type="text" name="email" placeholder="hello@example.com" /><br>
-		
-		<label for="first_name">First Name:</label>		
-		<input type="text" name="first_name" placeholder="John" /><br>
-		
-		<label for="last_name">Last Name:</label>
-		<input type="text" name="last_name" placeholder="Doe" /><br>
-
-		<button type="submit" value="Submit" />SIGN UP</button>
-	</fieldset>
-</form>
-
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/409bb830e7.js" crossorigin="anonymous"></script>
+    <title>みんなの女子トーク</title>
 <style>
+/*! destyle.css v2.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/* Reset box-model and set borders */
+/* ============================================ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+}
+
+/* Document */
+/* ============================================ */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+
 html {
-	font-family: arial;
-	font-size: 16;
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3*/
 }
-form {
-	display: inline-block;
+
+/* Sections */
+/* ============================================ */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
 }
-legend {
-	font-size: 14;
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
 }
-label {
-	width: 100px;
-	display: inline-block;
-	margin-left: 8;
-	margin-top: 15;
-	font-weight: bold;
+
+/* Vertical rhythm */
+/* ============================================ */
+
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
 }
-input, button {
-	font-size: 12px;
-	padding: 5px;
-	margin-right: 8;
+
+/* Headings */
+/* ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  margin: 0;
 }
+
+/* Lists (enumeration) */
+/* ============================================ */
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content */
+/* ============================================ */
+
+/**
+ * Prevent vertical alignment issues.
+ */
+
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* Forms */
+/* ============================================ */
+
+/**
+ * Reset form fields to make them styleable
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border-radius: 0;
+  text-align: inherit;
+}
+
+/**
+ * Reset radio and checkbox appearance to preserve their look in iOS.
+ */
+
+[type="checkbox"] {
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
+[type="radio"] {
+  -webkit-appearance: radio;
+  appearance: radio;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
 input {
-	border-radius: 3px;
-	border: 1px solid #ccc;
-	height: 25;
-	width: 200px;
+  /* 1 */
+  overflow: visible;
 }
-button {
-	border-radius: 3px;
-	border: 0px solid #ccc;
-	margin-top: 15px;
-	margin-bottom: 5px;
-	background-color: #1A82E2;
-	color: white;
-	text-align: center;
-	font-weight: bold;
-	font-size: 14px;
-	width: 308px;
-	height: 32px;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	float: right;
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button[disabled],
+[type="button"][disabled],
+[type="reset"][disabled],
+[type="submit"][disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Remove arrow in IE10 & IE11
+ */
+
+select::-ms-expand {
+  display: none;
+}
+
+/**
+ * Remove padding
+ */
+
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+ * Clickable labels
+ */
+
+label[for] {
+  cursor: pointer;
+}
+
+/* Interactive */
+/* ============================================ */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+
+[contenteditable] {
+  outline: none;
+}
+
+/* Table */
+/* ============================================ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Misc */
+/* ============================================ */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+
+/* リセットCSSここまで--------------------------- */
+</style>
+
+<!-- pc版 -->
+<style media="screen and ( min-width:600px )">
+.sp { display: none !important; }
+
+.logo1 {
+    width: 100%;
+    height: 980px;
+    background: url(http://drive.google.com/uc?export=view&id=1NUoF-cKo_HiQy4wOX3daGltEEf2EDhqx) center center / cover no-repeat,
+                url(http://drive.google.com/uc?export=view&id=1POyM0_t5AfLk2DvwU837sF33D0uIsGB4) center center / cover no-repeat;
+}
+	
+.logo_img {
+    text-align: center;
+}
+
+.logo_img1 {
+    margin: 60px 0px 20px 0px;
+}
+
+.logo_img2 {
+    margin-top: 24px;
+}
+
+.logo1_text {
+    margin-top: 24px;
+    width: 100%;
+}
+
+.logo1 p {
+    text-align: center;
+    font-size: 20px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+}
+	
+.logo1_text p {
+    font-size: 16px;
+}
+
+.comingsoon {
+  width: 750px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.comingsoon:before,
+.comingsoon:after {
+  content: "";
+  flex-grow: 1;
+  height: 2px; /* 線の太さ */
+  background: #FFF; /* 線の色 */
+  margin:0 2em; /* 文字と線の余白 */
+}
+
+.comingsoon .schedule {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.mail_form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.input_form {
+  margin-right: 20px;
+  width: 290px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: snow;
+  text-align: left;
+}
+
+.input_form::placeholder {
+  color: rgba(227, 95, 111, 0.4);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.input_btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  color: snow;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+  background-color: #e35f6f;
+} 
+
+.mail_icon {
+  font-size: 16px;
+}
+
+.sns_icon {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  color: snow;
+}
+
+.instagram {
+  margin-right: 36px;
+}
+
+.facebook {
+  margin-right: 36px;
+}
+
+.logo2 {
+    margin: 0 auto;
+    width: 100%;
+    height: 160px;
+    background-color: snow;
+    display: flex;
+    align-items: center;
+}
+
+.logo2 img {
+    margin: 0 auto;
+}
+
+footer {
+    margin: 0 auto;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.2;
+    font-family: '小塚ゴシック Pro','Kozuka Gothic Pro',sans-serif;
+    color: white;
 }
 </style>
+	
+<!-- sp版 -->	      
+<style media="screen and ( max-width:599px )">
+.pc { display: none !important; }
+
+.logo1 {
+    width: 100%;
+    height: 780px;
+    background: url(https://drive.google.com/uc?export=view&id=1UmdTRB3kGJW6RbFCt7T7BI8b2j2H3IC4) center center / cover no-repeat,
+                url(https://drive.google.com/uc?export=view&id=1dafmXPIANNW0wMNrJ2Y8KVYccaUBko0L) center center / cover no-repeat;
+}
+	
+.logo_img {
+  text-align: center;
+}
+
+.logo_img1 {
+    margin-top: 12px;
+}
+
+.logo1_text {
+    margin-top: 12px;
+    width: 100%;
+}
+
+.logo1 p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: white;
+}
+
+.comingsoon {
+  width: 320px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.comingsoon:before,
+.comingsoon:after {
+  content: "";
+  flex-grow: 1;
+  height: 2px; /* 線の太さ */
+  background: #FFF; /* 線の色 */
+  margin:0 1em; /* 文字と線の余白 */
+}
+
+.comingsoon .schedule {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mail_form {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.input_form {
+  margin-bottom: 15px;
+  width: 280px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: snow;
+  text-align: left;
+}
+
+.input_form::placeholder {
+  color: rgba(227, 95, 111, 0.4);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.input_btn {
+  width: 280px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 15px 20px;
+  color: snow;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+  background-color: #e35f6f;
+} 
+
+.mail_icon {
+  font-size: 16px;
+}
+
+.sns_icon {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  color: snow;
+}
+
+.instagram {
+  margin-right: 36px;
+}
+
+.facebook {
+  margin-right: 36px;
+}
+
+.logo2 {
+    margin: 0 auto;
+    width: 100%;
+    height: 100px;
+    background-color: snow;
+    display: flex;
+    align-items: center;
+}
+
+.logo2 img {
+    margin: 0 auto;
+}
+
+footer {
+    margin: 0 auto;
+    width: 100%;
+    height: 44px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.2;
+    font-family: '小塚ゴシック Pro','Kozuka Gothic Pro',sans-serif;
+    color: white;
+}      
+</style>
+	
+</head>
+<body>
+    <section>
+        <div class="logo1">
+		<div class="logo_img">
+              		<img class="pc logo_img1" src="https://drive.google.com/uc?export=view&id=1jEk2DUAh7HX840MDUfgktJV01xrgIK5y" alt="みんなの女子トーク1">
+              		<img class="sp logo_img1" src="https://drive.google.com/uc?export=view&id=1AMbf77UTR-nU9wsssssezVawEaeddbGe" alt="みんなの女子トーク1">
+              		<p>女性限定で自由におしゃべりすることができる掲示板<br>「みんなの女子トーク」がこの冬オープンします。<br>様々なお部屋があり、<br class="sp">同じような状況の人に聞きたいことを聞いたり、<br>悩みを打ち明けたり、<br class="sp">女性にとって役立つコンテンツです。<br>マナーを守ってみんなで楽しみましょう！</p>
+              		<img class="pc logo_img2" src="https://drive.google.com/uc?export=view&id=1tH492UteBSImZDcyZHtTtglng0P7Rr6q" alt="みんなの女子トーク2">
+              		<img class="sp logo_img2" src="https://drive.google.com/uc?export=view&id=12u3jAeBQ4qMowzBdVetEdOy-Y8WEECur" alt="みんなの女子トーク2">
+              		<div class="comingsoon">
+                		<p class="schedule">2021年冬公開予定</p>
+             		</div>
+            	</div>
+            <div class="logo1_text">
+                <p>掲示板オープンのお知らせを GET するには<br class="sp">以下にメールアドレスを入力して<br>「メールを登録する」をクリック。</p>
+            </div>
+            <div class="mail_form">
+				<form action="https://sendgridgirlstalkdemo.herokuapp.com/confirmEmail" method="post">
+					<fieldset>
+						<input class="input_form" type="email" name="email" placeholder="enter your email">
+						<button class="input_btn" type="submit" value="Submit"><span class="mail_icon"><i class="far fa-envelope"></i></span>メールを登録する</button>
+					</fieldset>
+				</form>
+            </div>
+            <div class="sns_icon">
+<!--                 <div class="instagram"><span><i class="fab fa-instagram"></i></span></div> -->
+<!--                 <div class="facebook"><span><i class="fab fa-facebook-f"></i></span></div> -->
+                <div class="twitter"><a rel="noopener" href="https://twitter.com/minjoshi_talk" target="_blank"><span><i class="fab fa-twitter fa-2x"></i></span></a></div>
+            </div>
+        </div>
+        <div class="logo2">
+            <img class="pc" src="http://drive.google.com/uc?export=view&id=11viiha_wJMgErapznPafxBwZePAv5ISS" alt="みんなの女子トークロゴ">
+            <img class="sp" src="http://drive.google.com/uc?export=view&id=1_sUokLhOP7cAW6g0-eIyYyHRn0OhT6Vo" alt="みんなの女子トークロゴ">
+        </div>
+        <footer>
+            <p>Copyright (C) Girl's TALK All Rights Reserved.</p>
+        </footer>
+    </section>
+</body>
+</html>
