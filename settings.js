@@ -13,5 +13,5 @@ exports.listId = 57887;
 exports.templateId = null;
 
 // receive an email when a new signup is confirmed
-exports.sendNotification = true;
-exports.notificationEmail = "viestinta@pohjolanliikenne.fi";
+exports.sendNotification = false;
+exports.notificationEmail = "";
